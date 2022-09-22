@@ -30,18 +30,19 @@
     </div>
     <div id="subscription-form">
       <strong><p style="color: white;">Preencha o formulário para agendar a sua aula experimental</p></strong>
+      <!-- INICIO FORMULARIO -->
       <form>
         <div class="form-group">
           <label for="name">Nome</label>
-          <input type="text" placeholder="Digite seu nome" />
+          <input id="name" type="text" placeholder="Digite seu nome" required />
         </div>
         <div class="form-group">
           <label for="phone">Telefone</label>
-          <input type="text" placeholder="Número de Whatsapp" />
+          <input id="phone" type="text" placeholder="Número de Whatsapp" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" required />
         </div>
         <div class="form-group">
           <label for="interest">Curso de interesse</label>
-          <select name="interest">
+          <select id="interest" name="interest" required>
             <option value="" disabled selected>Selecione</option>
             <option value="FirstBot">FirstBot - crianças de 5 a 6 anos</option>
             <option value="OneBot">OneBot - crianças de 7 a 11 anos</option>
@@ -49,8 +50,9 @@
             <option value="other">Outro</option>
           </select>
         </div>
-        <input type="submit" class="btn" value="Quero me inscrever" />
+        <input id="submit" name="submit" type="submit" class="btn" value="Quero me inscrever" onclick="sendwpp();" />
       </form>
+      <!-- FINAL FORMULARIO -->
     </div>
   </header>
   <section id="key-benefits">
@@ -139,6 +141,8 @@
     <p><span>Entre em contato:</span> oi@indecor.com.br</p>
     <p><span>Ou pelo telefone:</span> (55)99990-9999</p>
   </footer>
+
+  <script src="./app.js"></script>
 </body>
 
 </html>
